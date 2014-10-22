@@ -1,0 +1,85 @@
+#input{
+
+width:350px;
+height:80px;
+background:#eeddee;
+border-radius:9px;
+
+}
+#input .block{
+
+float:left;
+width:50px;
+height:50px;
+border-radius:4px;
+overflow:hidden;
+background:white;
+margin:15px 5px;
+
+
+
+}
+#input #arr{
+margin:8px 15px;
+float:left;
+cursor:pointer;
+
+
+}
+#code_content{
+width:230px;
+height:280px;
+border:0px solid;
+background:url("http://localhost/test.php") no-repeat;
+position:absolute;
+top:140px;
+
+}
+.small{
+width:50px;
+height:50px;
+border:1px solid black;
+border-radius:4px; 
+background:#bbbbbb;
+position:absolute;
+cursor:pointer;
+ filter:alpha(opacity=50);  
+      -moz-opacity:0.5;  
+      -khtml-opacity: 0.5;  
+      opacity: 0.5;  
+
+}
+.r1{
+
+top:100px;
+
+
+
+
+}
+.r2{
+
+top:160px;
+
+}
+.r3{
+
+top:220px;
+
+}
+.s1{
+
+
+left:20px;
+
+}
+.s2{
+
+left:90px;
+
+
+}
+.s3{
+
+left:160px;
+}
