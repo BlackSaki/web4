@@ -1,0 +1,79 @@
+<html>
+<head>
+<style>
+
+#input{
+float:right;
+
+
+}
+#content1{
+
+width:340px;
+
+}
+#codeimg{
+float:left;
+
+
+}
+#response{
+
+float:left;
+
+}
+</style>
+</head>
+<div id="content1">
+<div id="codeimg"></div>
+
+
+<input id="input" class="input_out" name=""  onFocus="urlreload();" onkeypress="keynum()"  onkeyup="value=value.replace(/[^a-zA-Z\d]/g,'');var len=document.getElementById('input').value.length;if(len>2  || len==2) ajax();" placeholder="µã»÷ÏÔÊ¾" type="text"  style="width:100px;" >
+
+
+
+
+<div id='response' ></div>
+</div>
+<script>
+function keynum(){
+  // var vau=document.getElementById('input').value;
+  
+   var len=document.getElementById('input').value.length;
+   if(len>2  || len==2)
+ajax();
+
+
+}
+function ajax(){
+
+
+var content=document.getElementById('input').value;
+//alert(content);
+                 xmlhttp=new XMLHttpRequest();
+                 xmlhttp.open("POST","http://localhost/web4/session_code4.php?"+Math.random(),true);
+                 xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+                 xmlhttp.send("code4="+content);
+                 xmlhttp.onreadystatechange=function()
+                       {
+                               if (xmlhttp.readyState==4 && xmlhttp.status==200)
+                             {  
+                                 document.getElementById('response').innerHTML=xmlhttp.responseText;
+		                
+                             }
+                       } 
+
+
+
+
+
+}
+function urlreload(){
+//alert(1234);
+//document.getElementById("imgcode").src="a.jpg";
+
+document.getElementById('codeimg').innerHTML='<img  onclick="urlreload()" style="cursor:pointer;" src="http://localhost/web4/temp.php">';
+
+}
+
+</script></html>

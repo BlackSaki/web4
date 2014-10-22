@@ -1,0 +1,86 @@
+<html>
+<head>
+<style>
+#codeimg,#renew,#response{
+float:left;
+}
+#in,#response{
+
+float:right;
+
+}
+#response{
+margin-top:20px;
+margin-right:10px;
+
+}
+#renew{
+margin-top:20px;
+
+}
+</style>
+</head>
+<body>
+
+
+
+<div id="code1" style="width:350px;">
+<div id="codeimg"></div>
+<input id="in" onkeyup="up()" onFocus="urlreload();" onkeydown="if(event.keyCode==13)event.keyCode=9" placeholder="点击显示验证码" maxLength="5" style="width:140px;height:30px;font-size:25px;" type="text" >
+</div>
+<div id="response"  style="color:red;"></div>
+
+
+<script>
+var t=document.getElementsByTagName("input");
+function up(){
+
+//alert(t[1].value.length);
+//alert(123);
+//var in=document.getElementById("input");
+//alert(in.focus());
+if(t[1].value.length==5)
+  {  ajax(t[1].value);
+
+
+}
+}
+
+//var in=document.getElementById("in");
+function ajax(content){
+
+//var content=arrblock[1]+''+arrblock[2]+''+arrblock[3]+''+arrblock[4];
+//var content=document.getElementById('textarea').value;
+                 xmlhttp=new XMLHttpRequest();
+                 xmlhttp.open("POST","http://localhost/web4/session1.php?"+Math.random(),true);
+                 xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+                 xmlhttp.send("con="+content);
+                 xmlhttp.onreadystatechange=function()
+                       {
+                               if (xmlhttp.readyState==4 && xmlhttp.status==200)
+                             {  
+                                 document.getElementById('response').innerHTML=xmlhttp.responseText;
+		                
+                             }
+                       } 
+
+
+
+
+
+
+
+}
+function urlreload(){
+//alert(1234);
+//document.getElementById("imgcode").src="a.jpg";
+
+document.getElementById('codeimg').innerHTML='<img  onclick="urlreload()" style="cursor:pointer;" src="http://localhost/web4/code2.php"><input id="renew" type=button value=刷新 onclick="urlreload()">';
+
+}
+</script>
+
+
+</body>
+
+</html>

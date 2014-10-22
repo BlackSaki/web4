@@ -1,0 +1,189 @@
+<html>
+<head>
+
+<META    HTTP-EQUIV="Pragma"    CONTENT="no-cache">    
+
+   <META    HTTP-EQUIV="Cache-Control"    CONTENT="no-cache">    
+
+   <META    HTTP-EQUIV="Expires"    CONTENT="0">    
+	
+   <link rel='stylesheet' type='text/css' href="code2.css"/>
+     
+</head>
+
+	<div id="code">
+          <div id="input">
+          <div id="block1" class="block a1"></div> 
+          <div id="block2" class="block a2"></div>
+          <div id="block3" class="block a3"></div>
+	  <div id="block4" class="block a4"></div>
+          <div id="arr"><img src="arr.png"> </div>
+  </div>
+        <input type=button value="»»Ò»×é" onclick="location.reload()" style="position:absolute;left:250px;">
+        <div id="response"  style="position:absolute;left:10px;color:red"></div>
+         <div id="code_content">
+          <div class="small r1 s1" value="1">    
+          </div>     
+	   <div class="small r1 s2" value="2">
+          </div>     
+	   <div class="small r1 s3" value="3">
+          </div>     
+	   <div class="small r2 s1" value="4">
+          </div>     
+	   <div class="small r2 s2" value="5">
+          </div>     
+	   <div class="small r2 s3" value="6">
+	   </div>     
+	    <div class="small r3 s1" value="7">
+	    </div>     
+	     <div class="small r3 s2" value="8">
+	     </div>     
+	      <div class="small r3 s3" value="9">
+          </div>     
+         </div>
+ </div>
+ 
+<script>
+	var bk=document.getElementById("code_content").style.backgroundImage="url(http://localhost/web4/test.php?"+Math.random()+")";
+  var arr=document.getElementsByClassName("small");
+  var num=0;
+  var block1=0;
+  var block2=0;
+  var block3=0;
+  var block4=0;
+  var arrblock = new Array();
+ for(var i=0;i<9;i++)
+ arr[i].onclick=function (){
+	
+   // alert(this.getAttribute("value"));
+    if(num>=0 && num<4)
+    {
+	    num++;
+    document.getElementById("block"+num).style.backgroundImage="url(temp.png?"+Math.random()+")";
+    if(this.getAttribute("value")==1)
+     
+             
+   { 
+    document.getElementById("block"+num).style.backgroundPositionX="-20";
+    document.getElementById("block"+num).style.backgroundPositionY="-100";
+    arrblock[num]=1;
+     if(num==4)
+	       ajax();
+   }
+   if(this.getAttribute("value")==2)
+   {
+    document.getElementById("block"+num).style.backgroundPositionX="-90";
+    document.getElementById("block"+num).style.backgroundPositionY="-100";
+    arrblock[num]=2;
+     if(num==4)
+	       ajax();
+   }
+    if(this.getAttribute("value")==3)
+   {
+    document.getElementById("block"+num).style.backgroundPositionX="-160";
+    document.getElementById("block"+num).style.backgroundPositionY="-100";
+    arrblock[num]=3;
+     if(num==4)
+	       ajax();
+   }
+     if(this.getAttribute("value")==4)
+   {
+    document.getElementById("block"+num).style.backgroundPositionX="-20";
+    document.getElementById("block"+num).style.backgroundPositionY="-160";
+    arrblock[num]=4;
+     if(num==4)
+	       ajax();
+   }
+   if(this.getAttribute("value")==5)
+   {
+    document.getElementById("block"+num).style.backgroundPositionX="-90";
+    document.getElementById("block"+num).style.backgroundPositionY="-160";
+    arrblock[num]=5;
+     if(num==4)
+	       ajax();
+   }
+    if(this.getAttribute("value")==6)
+   {
+    document.getElementById("block"+num).style.backgroundPositionX="-160";
+    document.getElementById("block"+num).style.backgroundPositionY="-160";
+    arrblock[num]=6;
+     if(num==4)
+	       ajax();
+   }
+     if(this.getAttribute("value")==7)
+   {
+    document.getElementById("block"+num).style.backgroundPositionX="-20";
+    document.getElementById("block"+num).style.backgroundPositionY="-220";
+    arrblock[num]=7;
+     if(num==4)
+	       ajax();
+   }
+   if(this.getAttribute("value")==8)
+   {
+    document.getElementById("block"+num).style.backgroundPositionX="-90";
+    document.getElementById("block"+num).style.backgroundPositionY="-220";
+    arrblock[num]=8;
+     if(num==4)
+	       ajax();
+   }
+    if(this.getAttribute("value")==9)
+   {
+    document.getElementById("block"+num).style.backgroundPositionX="-160";
+    document.getElementById("block"+num).style.backgroundPositionY="-220";
+    arrblock[num]=9;
+           if(num==4)
+	       ajax();
+   }
+   }
+    // document.getElementById("block1").style.backgroundColor="red";
+//  alert(this.className);
+
+   document.getElementById("arr").onclick=function(){
+    if(num>0){
+    
+	    for(var j=1;j<5;j++)
+	    if(num==j)
+	    {
+		    document.getElementById("block"+j).style.backgroundPositionX="-10";
+		     document.getElementById("block"+j).style.backgroundPositionY="-50";
+               num--;
+	       break;
+	     }
+
+    
+    
+    
+    
+    }
+         
+
+
+}
+function ajax(){
+
+var content=arrblock[1]+''+arrblock[2]+''+arrblock[3]+''+arrblock[4];
+//var content=document.getElementById('textarea').value;
+                 xmlhttp=new XMLHttpRequest();
+                 xmlhttp.open("POST","http://localhost/web4/session.php?"+Math.random(),true);
+                 xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+                 xmlhttp.send("con="+content);
+                 xmlhttp.onreadystatechange=function()
+                       {
+                               if (xmlhttp.readyState==4 && xmlhttp.status==200)
+                             {  
+                                 document.getElementById('response').innerHTML=xmlhttp.responseText;
+		                
+                             }
+                       } 
+
+
+
+
+
+}
+
+}
+     
+
+</script>
+</html>
