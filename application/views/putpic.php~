@@ -1,0 +1,74 @@
+<?php
+session_start();
+ob_clean();
+//header("Content-Type:image/jpeg");
+                 function showimage($imagenum){
+
+                   $filename = "./code/".$imagenum.".jpg";
+                   //  $filename = "./1.jpg";
+                 $im = imagecreatefromjpeg($filename);
+                 imagejpeg($im);
+                 imagedestroy($im);
+
+
+		 }
+                  function showimage1($imagenum){
+
+                   $filename = "./code/source/source_thumb/".$imagenum."_thumb".".jpg";
+                   //  $filename = "./1.jpg";
+                 $im = imagecreatefromjpeg($filename);
+                 imagejpeg($im);
+                 imagedestroy($im);
+
+
+		  }
+	     
+ 
+ 
+//echo "123";
+//echo $url;
+//for($i=0;$i<6;$i++)
+//echo $_SESSION['i'.$i]."<br>";
+// $rand0=rand(0,7);
+// $rand=6*$rand0;
+ $var1=sprintf("%04d",$_SESSION['rand']+1);
+ 
+ $var2=sprintf("%04d",$_SESSION['rand']+2);
+ $var3=sprintf("%04d",$_SESSION['rand']+3);
+ $var4=sprintf("%04d",$_SESSION['rand']+4);
+ $var5=sprintf("%04d",$_SESSION['rand']+5);
+ $var6=sprintf("%04d",$_SESSION['rand']+6);
+/*  $var1=sprintf("%04d",$rand+1);
+ 
+ $var2=sprintf("%04d",$rand+2);
+ $var3=sprintf("%04d",$rand+3);
+ $var4=sprintf("%04d",$rand+4);
+ $var5=sprintf("%04d",$rand+5);
+ $var6=sprintf("%04d",$rand+6);*/
+ // $_SESSION['rand'];
+ // $source_thumb=$_SESSION['rand']/6+1;
+ echo $_SESSION['source_thumb'];
+echo $_SESSION['i0'];
+//echo $_SESSION['rand'];
+   switch($url)
+{
+   case $_SESSION['i0']:
+	showimage($var1);break;
+case $_SESSION['i1']:
+	showimage($var2);break;
+case $_SESSION['i2']:
+	showimage($var3);break;
+case $_SESSION['i3']:
+	showimage($var4);break;
+case $_SESSION['i4']:
+	showimage($var5);break;
+case $_SESSION['i5']:
+	showimage($var6);break;
+case $_SESSION['source_thumb']:
+	showimage1($source_thumb);break;
+
+default:break;
+
+}
+	
+?>	    

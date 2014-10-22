@@ -1,0 +1,140 @@
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
+class Welcome extends CI_Controller {
+
+	/**
+	 * Index Page for this controller.
+	 *
+	 * Maps to the following URL
+	 * 		http://example.com/index.php/welcome
+	 *	- or -  
+	 * 		http://example.com/index.php/welcome/index
+	 *	- or -
+	 * Since this controller is set as the default controller in 
+	 * config/routes.php, it's displayed at http://example.com/
+	 *
+	 * So any other public methods not prefixed with an underscore will
+	 * map to /index.php/welcome/<method_name>
+	 * @see http://codeigniter.com/user_guide/general/urls.html
+	 *
+	 */
+        public function __cnstruct(){
+	
+	  
+	
+	
+	}
+	public function index()
+	{
+		$this->load->view('message');
+	}
+	public function randcode(){
+	 session_start();
+	$shuju=array();
+
+       for($i=0;$i<6;$i++)
+      {       $key="i".$i;
+       
+
+               $str = "abcdefghijklmnopqrstuvwxyz"; 
+	      $finalStr = "";  for($j=0;$j<9;$j++)
+       {       $finalStr .= substr($str,rand(0,25),1);  } 
+      
+
+              $str = $finalStr;
+              $shuju[$key]=$str;
+	      $_SESSION[$key]=$str;
+	      
+      }
+
+
+        $rand_array=range(0,5); 
+//print_r($rand_array);
+shuffle($rand_array);//调用现成的数组随机排列函数 
+for($i=0;$i<6;$i++)
+{
+
+$rand_array[$i]="i".$rand_array[$i];
+}
+    $data['data']=$shuju;
+$data['rand']=$rand_array;
+   	$this->load->view('welcome_message',$data);
+	}
+
+
+
+
+
+
+
+
+
+
+public function putpic(){
+         session_start();
+ 	$data['url']=$this->uri->segment(3);
+	 $this->load->view('putpic',$data);
+	
+//	echo $_SESSION['i0'];
+	}
+
+
+
+public function is_no(){
+         session_start();
+	 $a=1;
+	 $i1=2;
+//	 $c=
+//	 echo $i$a;
+	 //echo "123";
+	 //echo $_GET['u1'];
+	 $temp="http://localhost/web4/index.php/welcome/putpic/";
+         $_GET['u1']=str_replace($temp,'',$_GET['u1']);
+         $_GET['u2']=str_replace($temp,'',$_GET['u2']);
+         $_GET['u3']=str_replace($temp,'',$_GET['u3']);
+         $_GET['u4']=str_replace($temp,'',$_GET['u4']);
+         $_GET['u5']=str_replace($temp,'',$_GET['u5']);
+         $_GET['u6']=str_replace($temp,'',$_GET['u6']);
+       //  $_GET['u2']=strtr($_GET['u2'],$temp,'');
+        // $_GET['u3']=strtr($_GET['u3'],$temp,'');
+         //$_GET['u4']=strtr($_GET['u4'],$temp,'');
+         //$_GET['u5']=strtr($_GET['u5'],$temp,'');
+	 //echo strtr($_GET['u6'],$temp,'');
+             // echo $_GET['u1'];	
+	 if( $_SESSION['i0']!= $_GET['u1'] ):
+
+		 echo"<br>验证码错误";
+	 return false;
+	 endif;
+		   if( $_SESSION['i1']!= $_GET['u2'] ):
+		 echo"<br>验证码错误";
+	 return false;
+	 endif;
+	 if( $_SESSION['i2']!= $_GET['u3'] ):
+
+		 echo"<br>验证码错误";
+	 return false;
+	 endif;
+	 if( $_SESSION['i3']!= $_GET['u4'] ):
+
+		 echo"<br>验证码错误";
+	 return false;
+	 endif;
+	 if( $_SESSION['i4']!= $_GET['u5'] ):
+
+		 echo"<br>验证码错误";
+	 return false;
+	 endif;
+	 if( $_SESSION['i5']!= $_GET['u6'] ):
+
+		 echo"<br>验证码错误";
+	 return false;
+	 endif;
+		       echo "<br>验证码正确";
+	
+         
+
+}
+}
+/* End of file welcome.php */
+/* Location: ./application/controllers/welcome.php */
