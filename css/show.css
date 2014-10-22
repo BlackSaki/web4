@@ -1,0 +1,22 @@
+#content{
+
+
+width:520px;
+height:770px;
+margin:100px auto 0;
+border-radius:1px;
+
+
+
+}
+#content div{
+height:250px;
+width:250px;
+border:1px solid green;
+float:left;
+margin:2px;
+border-radius:5px;
+
+overflow:hidden;
+
+}

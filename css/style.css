@@ -1,0 +1,63 @@
+body {
+
+
+}
+#content{
+
+width:300px;
+height:600px; 
+//border:1px solid;
+margin:0 auto;
+//float:left;
+
+}
+#source{
+
+//float:left;
+
+
+}
+#center{
+
+width:25px;
+////float:left;
+//margin:0 10px;
+
+
+}
+#codepic{
+//border:1px black solid;
+
+width:204px;
+height:200px;
+//float:left;
+//margin:0 30px;
+
+}
+#codepic div{
+cursor:pointer;
+float:left;
+border:1px solid white;
+border-radius:4px;
+}
+#button{
+
+margin:20px auto;
+
+}
+#is_no{
+border:none;
+width:150px;
+
+
+
+
+}
+#panduan{
+
+
+margin-left:165px;
+
+
+
+}
